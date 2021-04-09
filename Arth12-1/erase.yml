@@ -1,0 +1,18 @@
+- hosts: backend_server
+  tasks:
+  - name: "Uninstalling ...."
+    command: "yum remove php -y"
+
+  - name: "Uninstalling ...."
+    command: "yum remove httpd -y"
+
+  - name: "Deliting files...."
+    command: "rm -rf /var/www/html"
+       
+- hosts: load_balancer
+  tasks:
+  - name: "Uninstalling haproxy...."
+    command: "yum remove haproxy -y"
+
+  - name: "Deliting files...."
+    command: "rm -rf /etc/haproxy/"
